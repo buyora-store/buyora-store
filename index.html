@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Buyora — Buy Smart, Live Better</title>
+  <meta name="description" content="Buyora - Discover great products and amazing deals online.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7fb;
+      color: #171717;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    .topbar {
+      background: #17112b;
+      color: white;
+      padding: 9px 5%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+
+    .navbar {
+      background: white;
+      padding: 17px 5%;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 29px;
+      font-weight: 800;
+      color: #24104f;
+      min-width: 145px;
+    }
+
+    .logo span {
+      color: #6c2cff;
+    }
+
+    .search-box {
+      flex: 1;
+      display: flex;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 13px 17px;
+      border: 1px solid #ddd;
+      border-right: none;
+      border-radius: 10px 0 0 10px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .search-box button {
+      width: 100px;
+      border: none;
+      background: #6c2cff;
+      color: white;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .cart-count {
+      background: #ffb900;
+      color: #111;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* ================= MENU ================= */
+
+    .menu {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      padding: 13px 5%;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      color: #6c2cff;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      margin: 25px 5%;
+      border-radius: 20px;
+      min-height: 380px;
+      background: linear-gradient(120deg, #220052, #6c2cff);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 45px 7%;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      max-width: 530px;
+    }
+
+    .hero-text small {
+      background: #ffcf00;
+      color: #151515;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #ffd000;
+    }
+
+    .hero p {
+      font-size: 17px;
+      opacity: .9;
+      margin-bottom: 28px;
+    }
+
+    .shop-btn {
+      background: #ffd000;
+      color: #111;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .hero-products {
+      font-size: 110px;
+      display: flex;
+      gap: 8px;
+      transform: rotate(-5deg);
+    }
+
+    /* ================= BENEFITS ================= */
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 0 5% 30px;
+    }
+
+    .benefit {
+      background: white;
+      padding: 20px;
+      border-radius: 13px;
+      text-align: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,.04);
+    }
+
+    .benefit .icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .benefit h3 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .benefit p {
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      margin: 35px 5%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 {
+      font-size: 26px;
+    }
+
+    .view-all {
+      color: #6c2cff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 14px;
+    }
+
+    .category {
+      background: white;
+      padding: 20px 10px;
+      border-radius: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+      border: 1px solid #eee;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+
+    .category-icon {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .category p {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: .2s;
+      position: relative;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.09);
+    }
+
+    .discount {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff3030;
+      color: white;
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .product-image {
+      height: 190px;
+      background: #f5f5fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 75px;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .stars {
+      color: #ffae00;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .product h3 {
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .product-category {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #e51e25;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .old-price {
+      font-size: 12px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 5px;
+    }
+
+    .add-cart {
+      width: 100%;
+      padding: 10px;
+      background: #6c2cff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-cart:hover {
+      background: #5420c8;
+    }
+
+    /* ================= DEAL BANNER ================= */
+
+    .deal-banner {
+      margin: 40px 5%;
+      padding: 35px 7%;
+      border-radius: 18px;
+      background: linear-gradient(100deg, #111127, #32106d);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .deal-banner h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .deal-banner p {
+      color: #ddd;
+    }
+
+    .deal-btn {
+      background: #ffd000;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #17112b;
+      color: white;
+      margin-top: 50px;
+      padding: 45px 5% 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 35px;
+    }
+
+    footer h2 {
+      margin-bottom: 12px;
+    }
+
+    footer h2 span {
+      color: #ffd000;
+    }
+
+    footer h3 {
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    footer p,
+    footer a {
+      color: #bbb;
+      font-size: 13px;
+      display: block;
+      margin-bottom: 9px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #383248;
+      padding-top: 20px;
+      text-align: center;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+
+      .topbar {
+        font-size: 10px;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        padding: 14px 4%;
+      }
+
+      .logo {
+        min-width: auto;
+      }
+
+      .search-box {
+        order: 3;
+        flex-basis: 100%;
+      }
+
+      .nav-icons {
+        margin-left: auto;
+        font-size: 12px;
+        gap: 10px;
+      }
+
+      .menu {
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 25px;
+        white-space: nowrap;
+      }
+
+      .hero {
+        margin: 15px 3%;
+        min-height: 330px;
+        padding: 35px 7%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .hero-products {
+        display: none;
+      }
+
+      .benefits {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 3% 25px;
+      }
+
+      .section {
+        margin: 30px 3%;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .product-image {
+        height: 145px;
+        font-size: 60px;
+      }
+
+      .deal-banner {
+        margin: 30px 3%;
+        padding: 28px;
+        display: block;
+      }
+
+      .deal-btn {
+        margin-top: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-icons span {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .category {
+        padding: 13px 5px;
+      }
+
+      .category-icon {
+        font-size: 25px;
+      }
+
+      .category p {
+        font-size: 10px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-info {
+        padding: 10px;
+      }
+
+      .product h3 {
+        font-size: 13px;
+      }
+
+      .price {
+        font-size: 15px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>⚡ Welcome to Buyora</div>
+    <div>🚚 Free Delivery on Selected Items &nbsp; | &nbsp; 💳 Easy Shopping</div>
+  </div>
+
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a href="#" class="logo">
+      Bu<span>y</span>ora
+    </a>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for products, brands and more..."
+        onkeyup="searchProducts()"
+      >
+      <button onclick="searchProducts()">Search</button>
+    </div>
+
+    <div class="nav-icons">
+      <a href="#">👤 <span>Account</span></a>
+      <a href="#">♡ <span>Wishlist</span></a>
+      <a href="#">
+        🛒 <span>Cart</span>
+        <b class="cart-count" id="cartCount">0</b>
+      </a>
+    </div>
+
+  </header>
+
+
+  <!-- MENU -->
+  <nav class="menu">
+    <a href="#">🏠 Home</a>
+    <a href="#deals">🔥 Today's Deals</a>
+    <a href="#categories">📱 Mobiles</a>
+    <a href="#products">🎧 Electronics</a>
+    <a href="#products">👕 Fashion</a>
+    <a href="#products">🏠 Home & Living</a>
+    <a href="#products">💄 Beauty</a>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <small>🔥 BIG SAVINGS</small>
+
+      <h1>
+        Buy Smart,<br>
+        <span>Live Better!</span>
+      </h1>
+
+      <p>
+        Discover popular products, amazing deals
+        and great prices — all in one place.
+      </p>
+
+      <button class="shop-btn" onclick="scrollToProducts()">
+        Shop Now →
+      </button>
+
+    </div>
+
+    <div class="hero-products">
+      📱 🎧 ⌚
+    </div>
+
+  </section>
+
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+
+    <div class="benefit">
+      <div class="icon">🚚</div>
+      <h3>Easy Shopping</h3>
+      <p>Find products quickly</p>
+    </div>
+
+    <div class="benefit">
+      <div class="icon">💰</div>
+      <h3>Great Deals</h3>
+      <p>Discover amazing prices</p>
+    </div>
+
+    <div class="benefit">
+      <div class="icon">🔗</div>
+      <h3>Trusted Links</h3>
+      <p>Shop through our links</p>
+    </div>
+
+    <div class="benefit">
+      <div class="icon">💬</div>
+      <h3>Customer Support</h3>
+      <p>We're here to help</p>
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+
+    <div class="section-heading">
+      <h2>Shop by Category</h2>
+      <a href="#products" class="view-all">View All →</a>
+    </div>
+
+    <div class="categories">
+
+      <div class="category" onclick="filterCategory('Mobiles')">
+        <div class="category-icon">📱</div>
+        <p>Mobiles</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Electronics')">
+        <div class="category-icon">🎧</div>
+        <p>Electronics</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Fashion')">
+        <div class="category-icon">👕</div>
+        <p>Fashion</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Home')">
+        <div class="category-icon">🏠</div>
+        <p>Home</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Beauty')">
+        <div class="category-icon">💄</div>
+        <p>Beauty</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Sports')">
+        <div class="category-icon">⚽</div>
+        <p>Sports</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Kids')">
+        <div class="category-icon">🧸</div>
+        <p>Kids</p>
+      </div>
+
+      <div class="category" onclick="filterCategory('Grocery')">
+        <div class="category-icon">🛒</div>
+        <p>Grocery</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+
+    <div class="section-heading">
+      <h2>Featured Products</h2>
+      <a href="#products" class="view-all">View All →</a>
+    </div>
+
+    <div class="products" id="productList">
+
+
+      <!-- PRODUCT 1 -->
+      <div class="product" data-name="Smart Phone" data-category="Mobiles">
+
+        <div class="discount">-20%</div>
+
+        <div class="product-image">
+          📱
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.8</div>
+
+          <h3>Smart Phone</h3>
+
+          <div class="product-category">
+            Mobiles
+          </div>
+
+          <div class="price">
+            Rs. 34,999
+            <span class="old-price">Rs. 42,999</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Smart Phone')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 2 -->
+      <div class="product" data-name="Wireless Earbuds" data-category="Electronics">
+
+        <div class="discount">-35%</div>
+
+        <div class="product-image">
+          🎧
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.9</div>
+
+          <h3>Wireless Earbuds</h3>
+
+          <div class="product-category">
+            Electronics
+          </div>
+
+          <div class="price">
+            Rs. 2,399
+            <span class="old-price">Rs. 3,699</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Wireless Earbuds')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+      <div class="product" data-name="Smart Watch" data-category="Electronics">
+
+        <div class="discount">-30%</div>
+
+        <div class="product-image">
+          ⌚
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.8</div>
+
+          <h3>Smart Watch</h3>
+
+          <div class="product-category">
+            Electronics
+          </div>
+
+          <div class="price">
+            Rs. 1,949
+            <span class="old-price">Rs. 2,799</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Smart Watch')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+      <div class="product" data-name="Running Shoes" data-category="Fashion">
+
+        <div class="discount">-25%</div>
+
+        <div class="product-image">
+          👟
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.7</div>
+
+          <h3>Running Shoes</h3>
+
+          <div class="product-category">
+            Fashion
+          </div>
+
+          <div class="price">
+            Rs. 6,999
+            <span class="old-price">Rs. 8,999</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Running Shoes')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 5 -->
+      <div class="product" data-name="Air Fryer" data-category="Home">
+
+        <div class="discount">-30%</div>
+
+        <div class="product-image">
+          🍳
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.8</div>
+
+          <h3>Digital Air Fryer</h3>
+
+          <div class="product-category">
+            Home
+          </div>
+
+          <div class="price">
+            Rs. 12,499
+            <span class="old-price">Rs. 17,999</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Digital Air Fryer')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- TODAY DEALS -->
+  <section class="section" id="deals">
+
+    <div class="section-heading">
+      <h2>🔥 Today's Deals</h2>
+      <a href="#products" class="view-all">View All →</a>
+    </div>
+
+    <div class="products">
+
+
+      <div class="product">
+
+        <div class="discount">-40%</div>
+
+        <div class="product-image">
+          🎮
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.7</div>
+
+          <h3>Gaming Controller</h3>
+
+          <div class="product-category">
+            Electronics
+          </div>
+
+          <div class="price">
+            Rs. 3,299
+            <span class="old-price">Rs. 5,499</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Gaming Controller')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="discount">-30%</div>
+
+        <div class="product-image">
+          🎒
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.6</div>
+
+          <h3>Travel Backpack</h3>
+
+          <div class="product-category">
+            Fashion
+          </div>
+
+          <div class="price">
+            Rs. 2,450
+            <span class="old-price">Rs. 3,500</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Travel Backpack')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="discount">-25%</div>
+
+        <div class="product-image">
+          🕶️
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.6</div>
+
+          <h3>Fashion Sunglasses</h3>
+
+          <div class="product-category">
+            Fashion
+          </div>
+
+          <div class="price">
+            Rs. 999
+            <span class="old-price">Rs. 1,499</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Fashion Sunglasses')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="discount">-20%</div>
+
+        <div class="product-image">
+          🧴
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.8</div>
+
+          <h3>Beauty Care Kit</h3>
+
+          <div class="product-category">
+            Beauty
+          </div>
+
+          <div class="price">
+            Rs. 1,599
+            <span class="old-price">Rs. 1,999</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Beauty Care Kit')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="discount">-35%</div>
+
+        <div class="product-image">
+          🏀
+        </div>
+
+        <div class="product-info">
+
+          <div class="stars">★★★★★ 4.7</div>
+
+          <h3>Sports Equipment</h3>
+
+          <div class="product-category">
+            Sports
+          </div>
+
+          <div class="price">
+            Rs. 2,999
+            <span class="old-price">Rs. 4,599</span>
+          </div>
+
+          <button class="add-cart"
+            onclick="addToCart('Sports Equipment')">
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- DEAL BANNER -->
+  <section class="deal-banner">
+
+    <div>
+      <h2>Find Your Next Great Deal 🔥</h2>
+      <p>
+        Explore popular products and discover something you love.
+      </p>
+    </div>
+
+    <button class="deal-btn" onclick="scrollToProducts()">
+      Explore Products →
+    </button>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h2>Bu<span>yora</span></h2>
+
+        <p>
+          Buy Smart, Live Better.
+          Discover products and deals from
+          different online stores in one place.
+        </p>
+
+        <p>
+          📧 support@buyora.store
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Quick Links</h3>
+
+        <a href="#">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#deals">Today's Deals</a>
+        <a href="#categories">Categories</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Customer</h3>
+
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy Policy</a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Follow Us</h3>
+
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 Buyora. All Rights Reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    let cartCount = 0;
+
+
+    /* ADD TO CART */
+
+    function addToCart(productName) {
+
+      cartCount++;
+
+      document.getElementById("cartCount").textContent = cartCount;
+
+      alert(productName + " added to cart!");
+
+    }
+
+
+    /* SEARCH */
+
+    function searchProducts() {
+
+      const input =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+      const products =
+        document.querySelectorAll(".product");
+
+      products.forEach(function(product) {
+
+        const name =
+          product.dataset.name ||
+          product.querySelector("h3")?.textContent ||
+          "";
+
+        if (name.toLowerCase().includes(input)) {
+
+          product.style.display = "";
+
+        } else {
+
+          product.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+
+    /* CATEGORY FILTER */
+
+    function filterCategory(category) {
+
+      const products =
+        document.querySelectorAll(".product");
+
+      products.forEach(function(product) {
+
+        const productCategory =
+          product.dataset.category ||
+          product.querySelector(".product-category")?.textContent ||
+          "";
+
+        if (
+          productCategory
+            .toLowerCase()
+            .includes(category.toLowerCase())
+        ) {
+
+          product.style.display = "";
+
+        } else {
+
+          product.style.display = "none";
+
+        }
+
+      });
+
+      document
+        .getElementById("products")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+
+    /* SCROLL */
+
+    function scrollToProducts() {
+
+      document
+        .getElementById("products")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+  </script>
+
+</body>
+</html>
