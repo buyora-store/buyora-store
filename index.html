@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Buyora - Shop Smart, Live Better</title>
+<title>Buyora | Shop Smart, Live Better</title>
 
 <style>
+
+/* =====================================================
+   BUYORA PREMIUM DESIGN
+===================================================== */
 
 *{
     margin:0;
@@ -20,37 +24,81 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#f5f6fa;
-    color:#222;
+    background:#080b18;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* =========================
+a{
+    text-decoration:none;
+}
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#6d28d9;
+    filter:blur(180px);
+    opacity:.16;
+    top:150px;
+    left:-250px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#0ea5e9;
+    filter:blur(180px);
+    opacity:.12;
+    bottom:-200px;
+    right:-200px;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* =====================================================
    TOP BAR
-========================= */
+===================================================== */
 
 .topbar{
-    background:#17102b;
-    color:white;
-    height:34px;
+    height:35px;
+    background:linear-gradient(90deg,#10091f,#241047,#10091f);
+    border-bottom:1px solid rgba(255,255,255,.07);
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:0 5%;
-    font-size:13px;
+    color:#cfc7df;
+    font-size:12px;
 }
 
-/* =========================
+.topbar strong{
+    color:#c4b5fd;
+}
+
+/* =====================================================
    NAVBAR
-========================= */
+===================================================== */
 
 .navbar{
-    background:white;
-    height:76px;
+    height:78px;
+    background:rgba(8,11,24,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 5%;
-    border-bottom:1px solid #eee;
     position:sticky;
     top:0;
     z-index:1000;
@@ -58,124 +106,145 @@ body{
 
 .logo{
     font-size:31px;
-    font-weight:800;
-    color:#30106b;
-    letter-spacing:-1px;
+    font-weight:900;
+    letter-spacing:-1.5px;
+    color:#fff;
 }
 
 .logo span{
-    color:#6d28d9;
+    background:linear-gradient(90deg,#a78bfa,#38bdf8);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .search-box{
-    display:flex;
     width:43%;
-    height:43px;
-    border:1px solid #ddd;
-    border-radius:12px;
+    height:44px;
+    display:flex;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.055);
+    border-radius:13px;
     overflow:hidden;
-    background:#fafafa;
+    transition:.3s;
+}
+
+.search-box:focus-within{
+    border-color:#8b5cf6;
+    box-shadow:0 0 0 3px rgba(139,92,246,.12);
 }
 
 .search-box input{
     flex:1;
     border:0;
     outline:none;
-    padding:0 17px;
-    font-size:14px;
     background:transparent;
+    color:white;
+    padding:0 17px;
+    font-size:13px;
+}
+
+.search-box input::placeholder{
+    color:#8d8ba0;
 }
 
 .search-box button{
     border:0;
-    background:#6d28d9;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
     color:white;
-    padding:0 25px;
+    padding:0 24px;
+    font-weight:800;
     cursor:pointer;
-    font-weight:bold;
 }
 
 .nav-actions{
     display:flex;
-    gap:18px;
     align-items:center;
-    font-size:14px;
+    gap:17px;
+    color:#c9c5d3;
+    font-size:13px;
 }
 
 .nav-actions span{
     cursor:pointer;
 }
 
+.nav-actions span:hover{
+    color:white;
+}
+
 .cart{
     position:relative;
+    padding-right:8px;
 }
 
 .cart-count{
     position:absolute;
-    top:-11px;
-    right:-10px;
-    background:#facc15;
-    color:#222;
+    top:-10px;
+    right:-7px;
     width:18px;
     height:18px;
+    background:#facc15;
+    color:#111;
     border-radius:50%;
-    font-size:11px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:bold;
+    font-size:10px;
+    font-weight:900;
 }
 
-/* =========================
+/* =====================================================
    NAV LINKS
-========================= */
+===================================================== */
 
 .navlinks{
-    background:white;
+    height:49px;
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:38px;
-    padding:13px 10px;
-    border-bottom:1px solid #eee;
+    background:#0c1020;
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .navlinks a{
-    color:#333;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    transition:.2s;
+    color:#aaa7b8;
+    font-size:13px;
+    font-weight:700;
+    transition:.25s;
 }
 
 .navlinks a:hover{
-    color:#6d28d9;
+    color:#a78bfa;
 }
 
-/* =========================
-   HERO SLIDER
-========================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero-wrapper{
-    width:90%;
-    max-width:1400px;
+    width:92%;
+    max-width:1450px;
     margin:25px auto 0;
-    position:relative;
 }
 
 .hero-slider{
     width:100%;
-    height:430px;
-    overflow:hidden;
-    border-radius:24px;
+    height:440px;
     position:relative;
-    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    overflow:hidden;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        0 0 80px rgba(109,40,217,.08);
 }
 
 .slider-track{
     height:100%;
     display:flex;
-    transition:transform .75s cubic-bezier(.77,0,.18,1);
-    will-change:transform;
+    transition:transform .8s cubic-bezier(.77,0,.18,1);
 }
 
 .slide{
@@ -187,136 +256,196 @@ body{
     align-items:center;
 }
 
-/* SLIDE BACKGROUNDS */
+/* HERO BACKGROUNDS */
 
 .slide:nth-child(1){
-    background:linear-gradient(120deg,#160b38,#5421a4,#8b5cf6);
+    background:
+    radial-gradient(circle at 80% 35%,rgba(124,58,237,.6),transparent 32%),
+    linear-gradient(115deg,#11071f,#24104c 50%,#101c43);
 }
 
 .slide:nth-child(2){
-    background:linear-gradient(120deg,#071d38,#075985,#0ea5e9);
+    background:
+    radial-gradient(circle at 78% 35%,rgba(14,165,233,.55),transparent 34%),
+    linear-gradient(115deg,#061323,#082c50 55%,#071b36);
 }
 
 .slide:nth-child(3){
-    background:linear-gradient(120deg,#3b071f,#9d174d,#ec4899);
+    background:
+    radial-gradient(circle at 80% 40%,rgba(236,72,153,.55),transparent 33%),
+    linear-gradient(115deg,#260916,#5a123a 55%,#26102f);
 }
 
 .slide:nth-child(4){
-    background:linear-gradient(120deg,#102c20,#166534,#22c55e);
+    background:
+    radial-gradient(circle at 80% 40%,rgba(34,197,94,.45),transparent 33%),
+    linear-gradient(115deg,#071c17,#0b432e 55%,#09291f);
+}
+
+/* HERO DECORATION */
+
+.slide::before{
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    right:13%;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.slide::after{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:50%;
+    right:16%;
+    top:50%;
+    transform:translateY(-50%);
 }
 
 /* HERO CONTENT */
 
 .hero-content{
-    width:52%;
+    width:56%;
     padding-left:8%;
-    color:white;
     position:relative;
-    z-index:3;
+    z-index:5;
 }
 
 .badge{
-    display:inline-block;
-    background:#facc15;
-    color:#111;
-    padding:9px 17px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(250,204,21,.14);
+    border:1px solid rgba(250,204,21,.4);
+    color:#facc15;
     border-radius:30px;
-    font-size:12px;
-    font-weight:800;
+    padding:8px 15px;
+    font-size:11px;
+    font-weight:900;
     margin-bottom:18px;
 }
 
 .hero-content h1{
-    font-size:48px;
-    line-height:1.05;
-    margin-bottom:16px;
-    letter-spacing:-1px;
+    font-size:53px;
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:17px;
+}
+
+.hero-content h1 span{
+    background:linear-gradient(90deg,#c4b5fd,#67e8f9);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .hero-content p{
-    font-size:16px;
-    line-height:1.6;
-    color:rgba(255,255,255,.9);
-    max-width:500px;
+    color:#c4c1cf;
+    max-width:530px;
+    line-height:1.65;
+    font-size:14px;
     margin-bottom:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
 }
 
 .hero-btn{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    background:white;
-    color:#371078;
-    padding:13px 23px;
-    border-radius:10px;
-    text-decoration:none;
+    padding:13px 21px;
+    border-radius:11px;
+    background:linear-gradient(135deg,#8b5cf6,#2563eb);
+    color:white;
     font-weight:800;
-    font-size:14px;
-    transition:.25s;
+    font-size:13px;
+    box-shadow:0 10px 25px rgba(124,58,237,.3);
+    transition:.3s;
 }
 
 .hero-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(124,58,237,.4);
+}
+
+.hero-btn.secondary{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:none;
 }
 
 /* HERO VISUAL */
 
 .hero-visual{
     position:absolute;
-    right:4%;
-    width:45%;
+    right:5%;
+    width:42%;
     height:100%;
     display:flex;
     align-items:center;
     justify-content:center;
+    z-index:3;
 }
 
 .product-orbit{
-    width:330px;
-    height:330px;
+    width:300px;
+    height:300px;
     border-radius:50%;
-    background:rgba(255,255,255,.12);
     display:flex;
     align-items:center;
     justify-content:center;
-    position:relative;
+    background:
+        radial-gradient(circle,rgba(255,255,255,.16),rgba(255,255,255,.025));
+    border:1px solid rgba(255,255,255,.13);
+    box-shadow:
+        inset 0 0 50px rgba(255,255,255,.04),
+        0 20px 60px rgba(0,0,0,.25);
+    animation:float 4s ease-in-out infinite;
 }
 
-.product-orbit::before{
-    content:"";
-    position:absolute;
-    width:250px;
-    height:250px;
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:50%;
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
 }
 
 .big-icon{
-    font-size:125px;
-    filter:drop-shadow(0 20px 15px rgba(0,0,0,.25));
-    z-index:2;
+    font-size:120px;
+    filter:drop-shadow(0 20px 20px rgba(0,0,0,.35));
 }
 
 .floating-card{
     position:absolute;
-    background:rgba(255,255,255,.95);
-    color:#222;
-    border-radius:14px;
+    background:rgba(13,16,32,.8);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.12);
     padding:12px 16px;
-    box-shadow:0 12px 25px rgba(0,0,0,.18);
-    font-size:13px;
-    font-weight:bold;
+    border-radius:13px;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+    font-size:12px;
+    font-weight:800;
 }
 
 .card-one{
-    top:75px;
+    top:105px;
     right:0;
 }
 
 .card-two{
-    bottom:75px;
-    left:0;
+    bottom:95px;
+    left:10px;
 }
 
 /* ARROWS */
@@ -325,25 +454,26 @@ body{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    width:45px;
-    height:45px;
+    width:46px;
+    height:46px;
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.3);
+    border:1px solid rgba(255,255,255,.18);
     background:rgba(0,0,0,.25);
     color:white;
-    font-size:25px;
+    font-size:27px;
     cursor:pointer;
-    z-index:10;
+    z-index:20;
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:.2s;
-    backdrop-filter:blur(5px);
+    backdrop-filter:blur(10px);
+    transition:.25s;
 }
 
 .slider-arrow:hover{
     background:white;
-    color:#351071;
+    color:#30105f;
+    transform:translateY(-50%) scale(1.08);
 }
 
 .prev{
@@ -358,285 +488,462 @@ body{
 
 .slider-dots{
     position:absolute;
-    bottom:18px;
+    bottom:19px;
     left:50%;
     transform:translateX(-50%);
     display:flex;
     gap:8px;
-    z-index:10;
+    z-index:20;
 }
 
 .dot{
-    width:9px;
-    height:9px;
-    border-radius:50%;
-    background:rgba(255,255,255,.5);
+    width:8px;
+    height:8px;
+    border-radius:20px;
+    background:rgba(255,255,255,.4);
     cursor:pointer;
-    transition:.3s;
+    transition:.35s;
 }
 
 .dot.active{
     width:28px;
-    border-radius:10px;
-    background:#facc15;
+    background:#a78bfa;
+    box-shadow:0 0 12px rgba(167,139,250,.7);
 }
 
-/* =========================
+/* =====================================================
    BENEFITS
-========================= */
+===================================================== */
 
 .benefits{
-    width:90%;
-    max-width:1400px;
-    margin:20px auto;
+    width:92%;
+    max-width:1450px;
+    margin:20px auto 0;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:14px;
 }
 
 .benefit{
-    background:white;
-    border-radius:16px;
-    padding:21px;
-    text-align:center;
-    box-shadow:0 5px 18px rgba(0,0,0,.05);
-    transition:.25s;
+    min-height:105px;
+    padding:18px;
+    border-radius:17px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    transition:.3s;
 }
 
 .benefit:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(0,0,0,.09);
+    transform:translateY(-5px);
+    border-color:rgba(139,92,246,.4);
+    background:linear-gradient(
+        145deg,
+        rgba(139,92,246,.12),
+        rgba(255,255,255,.035)
+    );
 }
 
 .benefit-icon{
-    font-size:30px;
-    margin-bottom:8px;
+    width:48px;
+    height:48px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:rgba(139,92,246,.13);
+    font-size:24px;
 }
 
 .benefit h3{
-    font-size:15px;
+    font-size:13px;
     margin-bottom:5px;
 }
 
 .benefit p{
-    font-size:12px;
-    color:#888;
+    color:#858292;
+    font-size:11px;
 }
 
-/* =========================
+/* =====================================================
    SECTION
-========================= */
+===================================================== */
 
 .section{
-    width:90%;
-    max-width:1400px;
-    margin:40px auto;
+    width:92%;
+    max-width:1450px;
+    margin:45px auto;
 }
 
 .section-header{
     display:flex;
+    align-items:end;
     justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+    margin-bottom:19px;
 }
 
-.section-header h2{
-    font-size:25px;
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.section-title h2{
+    font-size:24px;
+    letter-spacing:-.5px;
+}
+
+.section-title p{
+    color:#777488;
+    font-size:11px;
+    margin-top:5px;
 }
 
 .view-all{
-    color:#6d28d9;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:bold;
+    color:#a78bfa;
+    font-size:12px;
+    font-weight:800;
 }
 
-/* =========================
+.view-all:hover{
+    color:#c4b5fd;
+}
+
+/* =====================================================
    CATEGORIES
-========================= */
+===================================================== */
 
 .categories{
     display:grid;
     grid-template-columns:repeat(8,1fr);
-    gap:14px;
+    gap:13px;
 }
 
 .category{
-    background:white;
-    border-radius:15px;
-    padding:20px 10px;
+    min-height:115px;
+    padding:18px 8px;
     text-align:center;
+    border-radius:17px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,255,255,.08);
     cursor:pointer;
-    border:1px solid #eee;
-    transition:.25s;
+    transition:.3s;
 }
 
 .category:hover{
-    transform:translateY(-5px);
-    border-color:#c4b5fd;
-    box-shadow:0 8px 20px rgba(109,40,217,.12);
+    transform:translateY(-6px);
+    border-color:rgba(139,92,246,.5);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
 }
 
 .category-icon{
-    font-size:34px;
-    margin-bottom:9px;
+    width:52px;
+    height:52px;
+    margin:0 auto 11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:16px;
+    background:linear-gradient(
+        135deg,
+        rgba(139,92,246,.18),
+        rgba(14,165,233,.08)
+    );
+    font-size:28px;
 }
 
 .category p{
-    font-size:13px;
-    font-weight:700;
+    color:#d9d6e1;
+    font-size:12px;
+    font-weight:800;
 }
 
-/* =========================
+/* =====================================================
    PRODUCTS
-========================= */
+===================================================== */
 
 .products{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
+    gap:17px;
 }
 
 .product{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid #eee;
-    transition:.25s;
     position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
 }
 
 .product:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 30px rgba(0,0,0,.1);
+    transform:translateY(-7px);
+    border-color:rgba(139,92,246,.45);
+    box-shadow:0 20px 40px rgba(0,0,0,.28);
 }
 
 .product-image{
-    height:220px;
-    background:#f4f4f7;
+    height:215px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(139,92,246,.14),
+            transparent 65%
+        ),
+        #0d1121;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:85px;
+    position:relative;
+}
+
+.discount{
+    position:absolute;
+    top:12px;
+    left:12px;
+    padding:6px 9px;
+    background:#facc15;
+    color:#111;
+    border-radius:7px;
+    font-size:10px;
+    font-weight:900;
+}
+
+.product-heart{
+    position:absolute;
+    right:12px;
+    top:12px;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.1);
+    cursor:pointer;
 }
 
 .product-info{
-    padding:17px;
+    padding:16px;
 }
 
 .product-category{
-    color:#8a8a8a;
-    font-size:11px;
+    color:#8b5cf6;
+    font-size:10px;
     text-transform:uppercase;
-    font-weight:bold;
+    font-weight:900;
+    letter-spacing:.5px;
 }
 
 .product h3{
-    font-size:15px;
-    margin:8px 0;
+    margin:7px 0 8px;
+    font-size:14px;
+}
+
+.rating{
+    color:#facc15;
+    font-size:11px;
+    margin-bottom:9px;
+}
+
+.price-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
 }
 
 .price{
-    font-size:19px;
-    font-weight:800;
-    color:#371078;
+    color:#fff;
+    font-size:18px;
+    font-weight:900;
 }
 
 .old-price{
-    color:#aaa;
-    font-size:12px;
+    color:#777487;
     text-decoration:line-through;
-    margin-left:5px;
+    font-size:11px;
 }
 
 .add-cart{
     width:100%;
-    border:0;
-    background:#6d28d9;
-    color:white;
-    padding:11px;
+    border:1px solid rgba(139,92,246,.3);
+    background:rgba(124,58,237,.14);
+    color:#c4b5fd;
+    padding:10px;
     margin-top:13px;
     border-radius:9px;
     cursor:pointer;
-    font-weight:bold;
-    transition:.2s;
+    font-weight:800;
+    font-size:12px;
+    transition:.25s;
 }
 
 .add-cart:hover{
-    background:#5420aa;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+    color:white;
 }
 
-/* =========================
+/* =====================================================
    DEALS
-========================= */
+===================================================== */
 
 .deals{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
+    gap:17px;
 }
 
 .deal{
-    min-height:170px;
-    border-radius:18px;
-    padding:25px;
-    color:white;
+    min-height:185px;
     position:relative;
     overflow:hidden;
+    border-radius:20px;
+    padding:27px;
+    border:1px solid rgba(255,255,255,.1);
 }
 
 .deal:nth-child(1){
-    background:linear-gradient(135deg,#4c1d95,#7c3aed);
+    background:
+    radial-gradient(circle at 90% 30%,rgba(167,139,250,.5),transparent 35%),
+    linear-gradient(135deg,#1e0b3d,#3b176f);
 }
 
 .deal:nth-child(2){
-    background:linear-gradient(135deg,#075985,#0284c7);
+    background:
+    radial-gradient(circle at 90% 30%,rgba(56,189,248,.5),transparent 35%),
+    linear-gradient(135deg,#06243c,#075985);
 }
 
 .deal:nth-child(3){
-    background:linear-gradient(135deg,#9f1239,#e11d48);
+    background:
+    radial-gradient(circle at 90% 30%,rgba(251,113,133,.5),transparent 35%),
+    linear-gradient(135deg,#3a0b1d,#881337);
 }
 
 .deal h3{
-    font-size:23px;
+    font-size:25px;
     margin-bottom:8px;
 }
 
 .deal p{
-    font-size:13px;
-    opacity:.9;
+    color:#d1cbd9;
+    font-size:12px;
+    line-height:1.6;
+    max-width:230px;
+}
+
+.deal-btn{
+    display:inline-block;
+    margin-top:17px;
+    color:white;
+    font-size:11px;
+    font-weight:900;
 }
 
 .deal-icon{
     position:absolute;
     right:25px;
     bottom:10px;
-    font-size:75px;
-    opacity:.35;
+    font-size:85px;
+    opacity:.25;
 }
 
-/* =========================
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+.newsletter{
+    width:92%;
+    max-width:1450px;
+    margin:50px auto;
+    padding:38px;
+    border-radius:23px;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(124,58,237,.25),transparent 55%),
+        linear-gradient(135deg,#17102c,#0c1830);
+    border:1px solid rgba(139,92,246,.2);
+}
+
+.newsletter h2{
+    font-size:27px;
+    margin-bottom:8px;
+}
+
+.newsletter p{
+    color:#9994a7;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.newsletter-box{
+    max-width:450px;
+    margin:auto;
+    display:flex;
+    height:43px;
+}
+
+.newsletter-box input{
+    flex:1;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.1);
+    border-right:0;
+    outline:none;
+    color:white;
+    padding:0 15px;
+    border-radius:9px 0 0 9px;
+}
+
+.newsletter-box button{
+    width:120px;
+    border:0;
+    border-radius:0 9px 9px 0;
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
-    background:#17102b;
-    color:white;
     margin-top:60px;
-    padding:45px 5% 25px;
+    background:#050710;
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:50px 5% 25px;
 }
 
 .footer-grid{
-    max-width:1400px;
+    max-width:1450px;
     margin:auto;
     display:grid;
     grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
+    gap:45px;
 }
 
 .footer-logo{
-    font-size:27px;
-    font-weight:800;
+    font-size:28px;
+    font-weight:900;
     margin-bottom:12px;
 }
 
@@ -645,54 +952,57 @@ footer{
 }
 
 footer p{
-    color:#aaa;
-    font-size:13px;
-    line-height:1.7;
+    color:#777487;
+    font-size:12px;
+    line-height:1.8;
+    max-width:350px;
 }
 
 footer h4{
-    margin-bottom:15px;
+    margin-bottom:16px;
+    font-size:13px;
 }
 
 footer a{
     display:block;
-    color:#aaa;
-    text-decoration:none;
-    margin-bottom:9px;
-    font-size:13px;
+    color:#777487;
+    font-size:12px;
+    margin-bottom:10px;
 }
 
 footer a:hover{
-    color:white;
+    color:#a78bfa;
 }
 
 .copyright{
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,.1);
-    margin-top:35px;
+    max-width:1450px;
+    margin:35px auto 0;
     padding-top:20px;
-    color:#888;
-    font-size:12px;
+    border-top:1px solid rgba(255,255,255,.06);
+    text-align:center;
+    color:#555263;
+    font-size:11px;
 }
 
-/* =========================
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
 .toast{
     position:fixed;
-    bottom:25px;
     right:25px;
-    background:#17102b;
-    color:white;
+    bottom:25px;
+    z-index:3000;
     padding:14px 20px;
-    border-radius:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    border-radius:11px;
+    background:#151125;
+    border:1px solid rgba(139,92,246,.35);
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+    color:white;
+    font-size:12px;
     transform:translateY(100px);
     opacity:0;
     transition:.3s;
-    z-index:2000;
-    font-size:13px;
 }
 
 .toast.show{
@@ -700,15 +1010,15 @@ footer a:hover{
     opacity:1;
 }
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
     .navbar{
         height:auto;
-        padding:15px 4%;
+        padding:14px 4%;
         flex-wrap:wrap;
         gap:12px;
     }
@@ -719,9 +1029,10 @@ footer a:hover{
     }
 
     .navlinks{
-        gap:15px;
         overflow-x:auto;
         justify-content:flex-start;
+        padding-left:20px;
+        gap:23px;
         white-space:nowrap;
     }
 
@@ -731,42 +1042,28 @@ footer a:hover{
 
     .hero-content{
         width:100%;
-        padding:45px 8%;
+        padding:40px 8%;
         align-self:flex-start;
     }
 
     .hero-content h1{
-        font-size:35px;
-    }
-
-    .hero-content p{
-        font-size:13px;
+        font-size:39px;
     }
 
     .hero-visual{
         width:100%;
-        height:220px;
-        bottom:-5px;
+        height:230px;
         right:0;
+        bottom:-5px;
     }
 
     .product-orbit{
-        width:190px;
-        height:190px;
+        width:200px;
+        height:200px;
     }
 
     .big-icon{
         font-size:75px;
-    }
-
-    .card-one{
-        top:25px;
-        right:10px;
-    }
-
-    .card-two{
-        bottom:20px;
-        left:10px;
     }
 
     .benefits{
@@ -790,11 +1087,15 @@ footer a:hover{
     }
 }
 
-@media(max-width:550px){
+@media(max-width:600px){
 
     .topbar{
-        font-size:10px;
         padding:0 3%;
+        font-size:9px;
+    }
+
+    .topbar span:last-child{
+        display:none;
     }
 
     .logo{
@@ -802,8 +1103,8 @@ footer a:hover{
     }
 
     .nav-actions{
-        gap:10px;
-        font-size:12px;
+        gap:9px;
+        font-size:10px;
     }
 
     .hero-wrapper{
@@ -812,56 +1113,96 @@ footer a:hover{
 
     .hero-slider{
         height:500px;
-        border-radius:18px;
+        border-radius:20px;
     }
 
     .hero-content{
-        padding-left:7%;
-        padding-right:7%;
+        padding:35px 7%;
     }
 
     .hero-content h1{
-        font-size:31px;
+        font-size:32px;
+        letter-spacing:-1px;
+    }
+
+    .hero-content p{
+        font-size:12px;
     }
 
     .hero-visual{
-        height:200px;
+        height:190px;
     }
 
     .product-orbit{
-        width:175px;
-        height:175px;
+        width:165px;
+        height:165px;
     }
 
     .big-icon{
-        font-size:68px;
+        font-size:62px;
+    }
+
+    .floating-card{
+        font-size:9px;
+        padding:9px 11px;
+    }
+
+    .card-one{
+        top:25px;
+        right:8px;
+    }
+
+    .card-two{
+        bottom:10px;
+        left:8px;
     }
 
     .slider-arrow{
-        width:36px;
-        height:36px;
+        width:35px;
+        height:35px;
         font-size:20px;
     }
 
     .prev{
-        left:8px;
+        left:7px;
     }
 
     .next{
-        right:8px;
+        right:7px;
     }
 
     .benefits{
-        grid-template-columns:1fr 1fr;
         width:94%;
+        gap:9px;
     }
 
     .benefit{
-        padding:15px 7px;
+        min-height:90px;
+        padding:12px 8px;
+        gap:8px;
+    }
+
+    .benefit-icon{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+    .benefit h3{
+        font-size:11px;
+    }
+
+    .benefit p{
+        font-size:9px;
     }
 
     .section{
         width:94%;
+        margin:35px auto;
+    }
+
+    .section-title h2{
+        font-size:20px;
     }
 
     .categories{
@@ -870,41 +1211,66 @@ footer a:hover{
     }
 
     .category{
-        padding:14px 5px;
+        min-height:95px;
+        padding:13px 4px;
     }
 
     .category-icon{
-        font-size:27px;
+        width:40px;
+        height:40px;
+        font-size:22px;
+        margin-bottom:7px;
     }
 
     .category p{
-        font-size:10px;
+        font-size:9px;
     }
 
     .products{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
+        gap:9px;
     }
 
     .product-image{
-        height:150px;
-        font-size:60px;
+        height:145px;
+        font-size:58px;
     }
 
     .product-info{
-        padding:12px;
+        padding:11px;
     }
 
     .product h3{
-        font-size:13px;
+        font-size:12px;
     }
 
     .price{
-        font-size:16px;
+        font-size:15px;
+    }
+
+    .newsletter{
+        width:94%;
+        padding:28px 15px;
+    }
+
+    .newsletter h2{
+        font-size:22px;
+    }
+
+    .newsletter-box{
+        width:100%;
+    }
+
+    .newsletter-box button{
+        width:95px;
     }
 
     .footer-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
+        gap:25px;
+    }
+
+    .footer-grid > div:first-child{
+        grid-column:1/-1;
     }
 }
 
@@ -913,15 +1279,27 @@ footer a:hover{
 
 <body>
 
-<!-- TOP BAR -->
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
 
 <div class="topbar">
-    <span>⚡ Welcome to Buyora</span>
-    <span>🚚 Free Delivery on Selected Items &nbsp; | &nbsp; 💳 Easy Shopping</span>
+
+    <span>⚡ <strong>Welcome to Buyora</strong></span>
+
+    <span>
+        🚚 Free Delivery on Selected Items
+        &nbsp; | &nbsp;
+        💳 Easy & Secure Shopping
+    </span>
+
 </div>
 
 
-<!-- NAVBAR -->
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header class="navbar">
 
@@ -929,23 +1307,38 @@ footer a:hover{
         Buy<span>ora</span>
     </div>
 
+
     <div class="search-box">
+
         <input
             type="text"
             id="searchInput"
-            placeholder="Search for products, brands and more..."
+            placeholder="Search products, brands and more..."
         >
-        <button onclick="searchProducts()">Search</button>
+
+        <button onclick="searchProducts()">
+            Search
+        </button>
+
     </div>
+
 
     <div class="nav-actions">
 
         <span>👤 Account</span>
+
         <span>♡ Wishlist</span>
 
         <span class="cart">
+
             🛒 Cart
-            <span class="cart-count" id="cartCount">0</span>
+
+            <span
+                class="cart-count"
+                id="cartCount">
+                0
+            </span>
+
         </span>
 
     </div>
@@ -953,279 +1346,372 @@ footer a:hover{
 </header>
 
 
-<!-- NAVIGATION -->
+<!-- =====================================================
+     NAV LINKS
+===================================================== -->
 
 <nav class="navlinks">
 
     <a href="#">🏠 Home</a>
+
     <a href="#deals">🔥 Today's Deals</a>
+
     <a href="#products">📱 Mobiles</a>
+
     <a href="#products">🎧 Electronics</a>
+
     <a href="#products">👕 Fashion</a>
+
     <a href="#categories">🏠 Home & Living</a>
+
     <a href="#products">💄 Beauty</a>
 
 </nav>
 
 
-<!-- HERO SLIDER -->
+<!-- =====================================================
+     HERO SLIDER
+===================================================== -->
 
 <section class="hero-wrapper">
 
-    <div class="hero-slider" id="heroSlider">
+<div class="hero-slider" id="heroSlider">
 
-        <div class="slider-track" id="sliderTrack">
+<div class="slider-track" id="sliderTrack">
 
 
-            <!-- SLIDE 1 -->
+<!-- SLIDE 1 -->
 
-            <div class="slide">
+<div class="slide">
 
-                <div class="hero-content">
+    <div class="hero-content">
 
-                    <span class="badge">
-                        BIG SAVINGS
-                    </span>
+        <span class="badge">
+            ✨ WELCOME TO BUYORA
+        </span>
 
-                    <h1>
-                        Buy Smart.<br>
-                        Live Better.
-                    </h1>
+        <h1>
+            Buy Smart.<br>
+            <span>Live Better.</span>
+        </h1>
 
-                    <p>
-                        Discover amazing products, exciting deals
-                        and everyday essentials — all in one place.
-                    </p>
+        <p>
+            Discover trending products, amazing offers
+            and everyday essentials — all in one place.
+        </p>
 
-                    <a href="#products" class="hero-btn">
-                        Shop Now →
-                    </a>
+        <div class="hero-buttons">
 
-                </div>
+            <a href="#products" class="hero-btn">
+                Shop Now →
+            </a>
 
-                <div class="hero-visual">
-
-                    <div class="product-orbit">
-                        <div class="big-icon">🛍️</div>
-                    </div>
-
-                    <div class="floating-card card-one">
-                        ⭐ Top Deals
-                    </div>
-
-                    <div class="floating-card card-two">
-                        🔥 Up to 50% Off
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- SLIDE 2 -->
-
-            <div class="slide">
-
-                <div class="hero-content">
-
-                    <span class="badge">
-                        ELECTRONICS SALE
-                    </span>
-
-                    <h1>
-                        Upgrade Your<br>
-                        Tech Today.
-                    </h1>
-
-                    <p>
-                        Explore smart gadgets, wireless earbuds,
-                        watches, accessories and more.
-                    </p>
-
-                    <a href="#products" class="hero-btn">
-                        Shop Electronics →
-                    </a>
-
-                </div>
-
-                <div class="hero-visual">
-
-                    <div class="product-orbit">
-                        <div class="big-icon">🎧</div>
-                    </div>
-
-                    <div class="floating-card card-one">
-                        ⚡ Smart Gadgets
-                    </div>
-
-                    <div class="floating-card card-two">
-                        💙 Best Prices
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- SLIDE 3 -->
-
-            <div class="slide">
-
-                <div class="hero-content">
-
-                    <span class="badge">
-                        FASHION DEALS
-                    </span>
-
-                    <h1>
-                        Style That<br>
-                        Fits You.
-                    </h1>
-
-                    <p>
-                        Find trendy fashion, comfortable outfits
-                        and accessories for every occasion.
-                    </p>
-
-                    <a href="#products" class="hero-btn">
-                        Explore Fashion →
-                    </a>
-
-                </div>
-
-                <div class="hero-visual">
-
-                    <div class="product-orbit">
-                        <div class="big-icon">👕</div>
-                    </div>
-
-                    <div class="floating-card card-one">
-                        ✨ New Styles
-                    </div>
-
-                    <div class="floating-card card-two">
-                        🛒 Shop Today
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- SLIDE 4 -->
-
-            <div class="slide">
-
-                <div class="hero-content">
-
-                    <span class="badge">
-                        TODAY'S DEALS
-                    </span>
-
-                    <h1>
-                        Great Deals.<br>
-                        Great Savings.
-                    </h1>
-
-                    <p>
-                        Don't miss today's hottest offers.
-                        New products and deals are waiting for you.
-                    </p>
-
-                    <a href="#deals" class="hero-btn">
-                        View Deals →
-                    </a>
-
-                </div>
-
-                <div class="hero-visual">
-
-                    <div class="product-orbit">
-                        <div class="big-icon">💰</div>
-                    </div>
-
-                    <div class="floating-card card-one">
-                        🔥 Hot Offer
-                    </div>
-
-                    <div class="floating-card card-two">
-                        💸 Save More
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ARROWS -->
-
-        <button class="slider-arrow prev" onclick="prevSlide()">
-            ‹
-        </button>
-
-        <button class="slider-arrow next" onclick="nextSlide()">
-            ›
-        </button>
-
-
-        <!-- DOTS -->
-
-        <div class="slider-dots">
-
-            <span class="dot active" onclick="goToSlide(0)"></span>
-            <span class="dot" onclick="goToSlide(1)"></span>
-            <span class="dot" onclick="goToSlide(2)"></span>
-            <span class="dot" onclick="goToSlide(3)"></span>
+            <a href="#categories"
+               class="hero-btn secondary">
+                Explore Categories
+            </a>
 
         </div>
 
     </div>
 
+
+    <div class="hero-visual">
+
+        <div class="product-orbit">
+            <div class="big-icon">🛍️</div>
+        </div>
+
+        <div class="floating-card card-one">
+            ⭐ Top Products
+        </div>
+
+        <div class="floating-card card-two">
+            🔥 Amazing Deals
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SLIDE 2 -->
+
+<div class="slide">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            ⚡ ELECTRONICS SALE
+        </span>
+
+        <h1>
+            Upgrade Your<br>
+            <span>Tech Today.</span>
+        </h1>
+
+        <p>
+            Find smart gadgets, wireless headphones,
+            watches, accessories and more at great prices.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="hero-btn">
+                Shop Electronics →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="product-orbit">
+            <div class="big-icon">🎧</div>
+        </div>
+
+        <div class="floating-card card-one">
+            ⚡ Smart Gadgets
+        </div>
+
+        <div class="floating-card card-two">
+            💙 Best Prices
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SLIDE 3 -->
+
+<div class="slide">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            👕 FASHION COLLECTION
+        </span>
+
+        <h1>
+            Your Style.<br>
+            <span>Your Choice.</span>
+        </h1>
+
+        <p>
+            Explore trendy fashion, stylish footwear
+            and accessories made for every occasion.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="hero-btn">
+                Explore Fashion →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="product-orbit">
+            <div class="big-icon">👟</div>
+        </div>
+
+        <div class="floating-card card-one">
+            ✨ New Arrivals
+        </div>
+
+        <div class="floating-card card-two">
+            🛍️ Shop Today
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SLIDE 4 -->
+
+<div class="slide">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            🔥 TODAY'S HOT DEALS
+        </span>
+
+        <h1>
+            More Deals.<br>
+            <span>More Savings.</span>
+        </h1>
+
+        <p>
+            Don't miss today's hottest offers.
+            Grab your favorite products before the deals end.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#deals" class="hero-btn">
+                View Deals →
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="product-orbit">
+            <div class="big-icon">💰</div>
+        </div>
+
+        <div class="floating-card card-one">
+            🔥 Hot Offer
+        </div>
+
+        <div class="floating-card card-two">
+            💸 Save More
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- ARROWS -->
+
+<button
+    class="slider-arrow prev"
+    onclick="prevSlide()">
+    ‹
+</button>
+
+<button
+    class="slider-arrow next"
+    onclick="nextSlide()">
+    ›
+</button>
+
+
+<!-- DOTS -->
+
+<div class="slider-dots">
+
+    <span
+        class="dot active"
+        onclick="goToSlide(0)">
+    </span>
+
+    <span
+        class="dot"
+        onclick="goToSlide(1)">
+    </span>
+
+    <span
+        class="dot"
+        onclick="goToSlide(2)">
+    </span>
+
+    <span
+        class="dot"
+        onclick="goToSlide(3)">
+    </span>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- BENEFITS -->
+<!-- =====================================================
+     BENEFITS
+===================================================== -->
 
 <section class="benefits">
 
     <div class="benefit">
+
         <div class="benefit-icon">🚚</div>
-        <h3>Easy Shopping</h3>
-        <p>Find products quickly</p>
+
+        <div>
+            <h3>Easy Shopping</h3>
+            <p>Find products quickly</p>
+        </div>
+
     </div>
 
-    <div class="benefit">
-        <div class="benefit-icon">💰</div>
-        <h3>Great Deals</h3>
-        <p>Discover amazing prices</p>
-    </div>
 
     <div class="benefit">
+
+        <div class="benefit-icon">💎</div>
+
+        <div>
+            <h3>Great Deals</h3>
+            <p>Discover amazing prices</p>
+        </div>
+
+    </div>
+
+
+    <div class="benefit">
+
         <div class="benefit-icon">🔗</div>
-        <h3>Trusted Links</h3>
-        <p>Shop through our links</p>
+
+        <div>
+            <h3>Trusted Links</h3>
+            <p>Shop through our links</p>
+        </div>
+
     </div>
 
+
     <div class="benefit">
+
         <div class="benefit-icon">💬</div>
-        <h3>Customer Support</h3>
-        <p>We're here to help</p>
+
+        <div>
+            <h3>Customer Support</h3>
+            <p>We're here to help</p>
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
 
-<section class="section" id="categories">
+<section
+    class="section"
+    id="categories">
 
     <div class="section-header">
 
-        <h2>Shop by Category</h2>
+        <div class="section-title">
 
-        <a href="#products" class="view-all">
+            <div>
+                <h2>Shop by Category</h2>
+                <p>Explore products made for you</p>
+            </div>
+
+        </div>
+
+        <a
+            href="#products"
+            class="view-all">
             View All →
         </a>
 
@@ -1234,74 +1720,153 @@ footer a:hover{
 
     <div class="categories">
 
-        <div class="category" onclick="filterCategory('Mobiles')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Mobiles')">
+
             <div class="category-icon">📱</div>
+
             <p>Mobiles</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Electronics')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Electronics')">
+
             <div class="category-icon">🎧</div>
+
             <p>Electronics</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Fashion')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Fashion')">
+
             <div class="category-icon">👕</div>
+
             <p>Fashion</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Home')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Home')">
+
             <div class="category-icon">🏠</div>
+
             <p>Home</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Beauty')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Beauty')">
+
             <div class="category-icon">💄</div>
+
             <p>Beauty</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Sports')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Sports')">
+
             <div class="category-icon">⚽</div>
+
             <p>Sports</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Kids')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Kids')">
+
             <div class="category-icon">🧸</div>
+
             <p>Kids</p>
+
         </div>
 
-        <div class="category" onclick="filterCategory('Grocery')">
+
+        <div
+            class="category"
+            onclick="filterCategory('Grocery')">
+
             <div class="category-icon">🛒</div>
+
             <p>Grocery</p>
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- FEATURED PRODUCTS -->
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
-<section class="section" id="products">
+<section
+    class="section"
+    id="products">
 
     <div class="section-header">
 
-        <h2>Featured Products</h2>
+        <div class="section-title">
 
-        <a href="#" class="view-all">
+            <div>
+                <h2>✨ Featured Products</h2>
+                <p>Popular picks for you</p>
+            </div>
+
+        </div>
+
+        <a
+            href="#products"
+            class="view-all">
             View All →
         </a>
 
     </div>
 
 
-    <div class="products" id="productGrid">
+    <div
+        class="products"
+        id="productGrid">
 
 
-        <div class="product" data-category="Electronics">
+        <!-- PRODUCT 1 -->
+
+        <div
+            class="product"
+            data-category="Electronics">
 
             <div class="product-image">
+
+                <span class="discount">
+                    -40%
+                </span>
+
+                <span class="product-heart">
+                    ♡
+                </span>
+
                 🎧
+
             </div>
+
 
             <div class="product-info">
 
@@ -1309,19 +1874,30 @@ footer a:hover{
                     Electronics
                 </div>
 
-                <h3>Wireless Headphones</h3>
+                <h3>
+                    Wireless Headphones
+                </h3>
 
-                <span class="price">
-                    Rs. 2,999
-                </span>
+                <div class="rating">
+                    ★★★★★
+                </div>
 
-                <span class="old-price">
-                    Rs. 4,999
-                </span>
+                <div class="price-row">
 
-                <button class="add-cart"
+                    <span class="price">
+                        Rs. 2,999
+                    </span>
+
+                    <span class="old-price">
+                        Rs. 4,999
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
                     onclick="addToCart('Wireless Headphones')">
-                    Add to Cart
+                    🛒 Add to Cart
                 </button>
 
             </div>
@@ -1329,11 +1905,26 @@ footer a:hover{
         </div>
 
 
-        <div class="product" data-category="Mobiles">
+        <!-- PRODUCT 2 -->
+
+        <div
+            class="product"
+            data-category="Mobiles">
 
             <div class="product-image">
+
+                <span class="discount">
+                    -20%
+                </span>
+
+                <span class="product-heart">
+                    ♡
+                </span>
+
                 📱
+
             </div>
+
 
             <div class="product-info">
 
@@ -1341,19 +1932,30 @@ footer a:hover{
                     Mobiles
                 </div>
 
-                <h3>Smartphone</h3>
+                <h3>
+                    Smart Smartphone
+                </h3>
 
-                <span class="price">
-                    Rs. 24,999
-                </span>
+                <div class="rating">
+                    ★★★★★
+                </div>
 
-                <span class="old-price">
-                    Rs. 29,999
-                </span>
+                <div class="price-row">
 
-                <button class="add-cart"
-                    onclick="addToCart('Smartphone')">
-                    Add to Cart
+                    <span class="price">
+                        Rs. 24,999
+                    </span>
+
+                    <span class="old-price">
+                        Rs. 29,999
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart('Smart Smartphone')">
+                    🛒 Add to Cart
                 </button>
 
             </div>
@@ -1361,11 +1963,26 @@ footer a:hover{
         </div>
 
 
-        <div class="product" data-category="Fashion">
+        <!-- PRODUCT 3 -->
+
+        <div
+            class="product"
+            data-category="Fashion">
 
             <div class="product-image">
+
+                <span class="discount">
+                    -36%
+                </span>
+
+                <span class="product-heart">
+                    ♡
+                </span>
+
                 👟
+
             </div>
+
 
             <div class="product-info">
 
@@ -1373,19 +1990,30 @@ footer a:hover{
                     Fashion
                 </div>
 
-                <h3>Premium Sneakers</h3>
+                <h3>
+                    Premium Sneakers
+                </h3>
 
-                <span class="price">
-                    Rs. 3,499
-                </span>
+                <div class="rating">
+                    ★★★★★
+                </div>
 
-                <span class="old-price">
-                    Rs. 5,499
-                </span>
+                <div class="price-row">
 
-                <button class="add-cart"
+                    <span class="price">
+                        Rs. 3,499
+                    </span>
+
+                    <span class="old-price">
+                        Rs. 5,499
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
                     onclick="addToCart('Premium Sneakers')">
-                    Add to Cart
+                    🛒 Add to Cart
                 </button>
 
             </div>
@@ -1393,11 +2021,26 @@ footer a:hover{
         </div>
 
 
-        <div class="product" data-category="Home">
+        <!-- PRODUCT 4 -->
+
+        <div
+            class="product"
+            data-category="Electronics">
 
             <div class="product-image">
+
+                <span class="discount">
+                    -43%
+                </span>
+
+                <span class="product-heart">
+                    ♡
+                </span>
+
                 ⌚
+
             </div>
+
 
             <div class="product-info">
 
@@ -1405,19 +2048,30 @@ footer a:hover{
                     Electronics
                 </div>
 
-                <h3>Smart Watch</h3>
+                <h3>
+                    Smart Watch
+                </h3>
 
-                <span class="price">
-                    Rs. 3,999
-                </span>
+                <div class="rating">
+                    ★★★★★
+                </div>
 
-                <span class="old-price">
-                    Rs. 6,999
-                </span>
+                <div class="price-row">
 
-                <button class="add-cart"
+                    <span class="price">
+                        Rs. 3,999
+                    </span>
+
+                    <span class="old-price">
+                        Rs. 6,999
+                    </span>
+
+                </div>
+
+                <button
+                    class="add-cart"
                     onclick="addToCart('Smart Watch')">
-                    Add to Cart
+                    🛒 Add to Cart
                 </button>
 
             </div>
@@ -1430,15 +2084,28 @@ footer a:hover{
 </section>
 
 
-<!-- TODAY DEALS -->
+<!-- =====================================================
+     TODAY DEALS
+===================================================== -->
 
-<section class="section" id="deals">
+<section
+    class="section"
+    id="deals">
 
     <div class="section-header">
 
-        <h2>🔥 Today's Deals</h2>
+        <div class="section-title">
 
-        <a href="#products" class="view-all">
+            <div>
+                <h2>🔥 Today's Deals</h2>
+                <p>Limited-time offers</p>
+            </div>
+
+        </div>
+
+        <a
+            href="#products"
+            class="view-all">
             Shop Deals →
         </a>
 
@@ -1447,14 +2114,23 @@ footer a:hover{
 
     <div class="deals">
 
+
         <div class="deal">
 
-            <h3>50% OFF</h3>
+            <h3>
+                Up to 50% OFF
+            </h3>
 
             <p>
                 Amazing electronics deals
-                available today.
+                available for a limited time.
             </p>
+
+            <a
+                href="#products"
+                class="deal-btn">
+                Shop Now →
+            </a>
 
             <div class="deal-icon">
                 🎧
@@ -1465,12 +2141,20 @@ footer a:hover{
 
         <div class="deal">
 
-            <h3>Best Sellers</h3>
+            <h3>
+                Best Sellers
+            </h3>
 
             <p>
                 Discover products loved
-                by our shoppers.
+                by shoppers everywhere.
             </p>
+
+            <a
+                href="#products"
+                class="deal-btn">
+                Explore →
+            </a>
 
             <div class="deal-icon">
                 ⭐
@@ -1481,12 +2165,20 @@ footer a:hover{
 
         <div class="deal">
 
-            <h3>Hot Offers</h3>
+            <h3>
+                Hot Offers
+            </h3>
 
             <p>
-                Limited-time deals you
-                don't want to miss.
+                Grab today's hottest offers
+                before they're gone.
             </p>
+
+            <a
+                href="#products"
+                class="deal-btn">
+                View Offers →
+            </a>
 
             <div class="deal-icon">
                 🔥
@@ -1494,16 +2186,50 @@ footer a:hover{
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+    <h2>
+        Stay Updated With Buyora
+    </h2>
+
+    <p>
+        Get notified about new products and amazing deals.
+    </p>
+
+    <div class="newsletter-box">
+
+        <input
+            type="email"
+            placeholder="Enter your email">
+
+        <button
+            onclick="subscribeUser()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
     <div class="footer-grid">
+
 
         <div>
 
@@ -1512,10 +2238,9 @@ footer a:hover{
             </div>
 
             <p>
-                Shop smart with Buyora.
-                Discover products, compare deals
-                and find great offers from trusted
-                shopping platforms.
+                Buyora is your modern shopping destination
+                for discovering products, deals and
+                trusted shopping links.
             </p>
 
         </div>
@@ -1556,6 +2281,7 @@ footer a:hover{
 
         </div>
 
+
     </div>
 
 
@@ -1568,36 +2294,42 @@ footer a:hover{
 
 <!-- TOAST -->
 
-<div class="toast" id="toast">
+<div
+    class="toast"
+    id="toast">
     Product Added Successfully! 🛒
 </div>
 
 
 <script>
 
-/* =========================
-   REAL SLIDER
-========================= */
+/* =====================================================
+   SLIDER
+===================================================== */
 
 let currentSlide = 0;
 
 const totalSlides = 4;
 
-const track = document.getElementById("sliderTrack");
+const track =
+    document.getElementById("sliderTrack");
 
-const dots = document.querySelectorAll(".dot");
+const dots =
+    document.querySelectorAll(".dot");
 
 let autoSlide;
 
 
-/* MOVE SLIDE */
+/* UPDATE SLIDER */
 
 function updateSlider(){
 
     track.style.transform =
-        "translate3d(-" + (currentSlide * 100) + "%, 0, 0)";
+        "translate3d(-" +
+        (currentSlide * 100) +
+        "%,0,0)";
 
-    dots.forEach((dot,index)=>{
+    dots.forEach(function(dot,index){
 
         dot.classList.toggle(
             "active",
@@ -1616,7 +2348,9 @@ function nextSlide(){
     currentSlide++;
 
     if(currentSlide >= totalSlides){
+
         currentSlide = 0;
+
     }
 
     updateSlider();
@@ -1631,7 +2365,10 @@ function prevSlide(){
     currentSlide--;
 
     if(currentSlide < 0){
-        currentSlide = totalSlides - 1;
+
+        currentSlide =
+            totalSlides - 1;
+
     }
 
     updateSlider();
@@ -1639,7 +2376,7 @@ function prevSlide(){
 }
 
 
-/* GO TO */
+/* GO TO SLIDE */
 
 function goToSlide(index){
 
@@ -1656,11 +2393,11 @@ function startAutoSlide(){
 
     clearInterval(autoSlide);
 
-    autoSlide = setInterval(function(){
-
-        nextSlide();
-
-    },5000);
+    autoSlide =
+        setInterval(
+            nextSlide,
+            5000
+        );
 
 }
 
@@ -1669,71 +2406,81 @@ startAutoSlide();
 
 /* PAUSE ON HOVER */
 
-const slider = document.getElementById("heroSlider");
+const slider =
+    document.getElementById("heroSlider");
 
-slider.addEventListener("mouseenter",function(){
+slider.addEventListener(
+    "mouseenter",
+    function(){
 
-    clearInterval(autoSlide);
+        clearInterval(autoSlide);
 
-});
+    }
+);
+
+slider.addEventListener(
+    "mouseleave",
+    function(){
+
+        startAutoSlide();
+
+    }
+);
 
 
-slider.addEventListener("mouseleave",function(){
-
-    startAutoSlide();
-
-});
-
-
-/* =========================
+/* =====================================================
    TOUCH SWIPE
-========================= */
+===================================================== */
 
 let touchStartX = 0;
 
 let touchEndX = 0;
 
 
-slider.addEventListener("touchstart",function(e){
+slider.addEventListener(
+    "touchstart",
+    function(e){
 
-    touchStartX = e.changedTouches[0].screenX;
-
-});
-
-
-slider.addEventListener("touchend",function(e){
-
-    touchEndX = e.changedTouches[0].screenX;
-
-    handleSwipe();
-
-});
-
-
-function handleSwipe(){
-
-    let difference = touchStartX - touchEndX;
-
-    if(Math.abs(difference) < 50){
-        return;
-    }
-
-    if(difference > 0){
-
-        nextSlide();
-
-    }else{
-
-        prevSlide();
+        touchStartX =
+            e.changedTouches[0].screenX;
 
     }
+);
 
-}
+
+slider.addEventListener(
+    "touchend",
+    function(e){
+
+        touchEndX =
+            e.changedTouches[0].screenX;
+
+        let difference =
+            touchStartX - touchEndX;
+
+        if(Math.abs(difference) < 50){
+
+            return;
+
+        }
+
+        if(difference > 0){
+
+            nextSlide();
+
+        }else{
+
+            prevSlide();
+
+        }
+
+    }
+);
 
 
-/* =========================
+/* =====================================================
    CART
-========================= */
+===================================================== */
 
 let cartCount = 0;
 
@@ -1742,19 +2489,21 @@ function addToCart(productName){
 
     cartCount++;
 
-    document.getElementById("cartCount").innerText =
-        cartCount;
+    document.getElementById(
+        "cartCount"
+    ).innerText = cartCount;
 
     showToast(
-        productName + " added to cart! 🛒"
+        productName +
+        " added to cart! 🛒"
     );
 
 }
 
 
-/* =========================
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
 function showToast(message){
 
@@ -1765,43 +2514,52 @@ function showToast(message){
 
     toast.classList.add("show");
 
-    setTimeout(function(){
+    setTimeout(
+        function(){
 
-        toast.classList.remove("show");
+            toast.classList.remove("show");
 
-    },2500);
+        },
+        2500
+    );
 
 }
 
 
-/* =========================
+/* =====================================================
    CATEGORY FILTER
-========================= */
+===================================================== */
 
 function filterCategory(category){
 
     const products =
         document.querySelectorAll(".product");
 
-    products.forEach(function(product){
+    products.forEach(
+        function(product){
 
-        const productCategory =
-            product.getAttribute("data-category");
+            const productCategory =
+                product.getAttribute(
+                    "data-category"
+                );
 
-        if(
-            category === "Home" ||
-            productCategory === category
-        ){
+            if(
+                category === "Home" ||
+                productCategory === category
+            ){
 
-            product.style.display = "block";
+                product.style.display =
+                    "block";
 
-        }else{
+            }else{
 
-            product.style.display = "none";
+                product.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
     document
         .getElementById("products")
@@ -1812,9 +2570,9 @@ function filterCategory(category){
 }
 
 
-/* =========================
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
 function searchProducts(){
 
@@ -1828,25 +2586,32 @@ function searchProducts(){
     const products =
         document.querySelectorAll(".product");
 
-    products.forEach(function(product){
+    products.forEach(
+        function(product){
 
-        const name =
-            product
-            .querySelector("h3")
-            .innerText
-            .toLowerCase();
+            const name =
+                product
+                .querySelector("h3")
+                .innerText
+                .toLowerCase();
 
-        if(input === "" || name.includes(input)){
+            if(
+                input === "" ||
+                name.includes(input)
+            ){
 
-            product.style.display = "block";
+                product.style.display =
+                    "block";
 
-        }else{
+            }else{
 
-            product.style.display = "none";
+                product.style.display =
+                    "none";
+
+            }
 
         }
-
-    });
+    );
 
     document
         .getElementById("products")
@@ -1857,19 +2622,60 @@ function searchProducts(){
 }
 
 
-/* ENTER KEY SEARCH */
+/* ENTER SEARCH */
 
 document
 .getElementById("searchInput")
-.addEventListener("keydown",function(e){
+.addEventListener(
+    "keydown",
+    function(e){
 
-    if(e.key === "Enter"){
+        if(e.key === "Enter"){
 
-        searchProducts();
+            searchProducts();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+function subscribeUser(){
+
+    const email =
+        document
+        .querySelector(
+            ".newsletter-box input"
+        )
+        .value
+        .trim();
+
+    if(email === ""){
+
+        showToast(
+            "Please enter your email 📧"
+        );
+
+        return;
 
     }
 
-});
+    showToast(
+        "Thanks for subscribing! 🎉"
+    );
+
+}
+
+
+/* =====================================================
+   INITIAL SLIDE
+===================================================== */
+
+updateSlider();
 
 </script>
 
