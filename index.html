@@ -125,23 +125,54 @@
       color: #6c2cff;
     }
 
-    /* ================= HERO ================= */
+    /* ================= HERO SLIDER ================= */
 
-    .hero {
+    .slider {
+      position: relative;
       margin: 25px 5%;
+      height: 380px;
       border-radius: 20px;
-      min-height: 380px;
-      background: linear-gradient(120deg, #220052, #6c2cff);
+      overflow: hidden;
       color: white;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 45px 7%;
-      overflow: hidden;
+      transition: opacity .6s ease, visibility .6s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .slide:nth-child(1) {
+      background: linear-gradient(120deg, #220052, #6c2cff);
+    }
+
+    .slide:nth-child(2) {
+      background: linear-gradient(120deg, #071b45, #0878c9);
+    }
+
+    .slide:nth-child(3) {
+      background: linear-gradient(120deg, #3b061d, #d52252);
+    }
+
+    .slide:nth-child(4) {
+      background: linear-gradient(120deg, #063b2d, #0c9b70);
     }
 
     .hero-text {
-      max-width: 530px;
+      max-width: 560px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-text small {
@@ -168,6 +199,7 @@
       font-size: 17px;
       opacity: .9;
       margin-bottom: 28px;
+      line-height: 1.5;
     }
 
     .shop-btn {
@@ -179,6 +211,12 @@
       font-weight: bold;
       cursor: pointer;
       font-size: 15px;
+      transition: .2s;
+    }
+
+    .shop-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(0,0,0,.2);
     }
 
     .hero-products {
@@ -186,6 +224,67 @@
       display: flex;
       gap: 8px;
       transform: rotate(-5deg);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* SLIDER ARROWS */
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.2);
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+      z-index: 10;
+      backdrop-filter: blur(5px);
+      transition: .2s;
+    }
+
+    .slider-arrow:hover {
+      background: rgba(255,255,255,.4);
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    /* SLIDER DOTS */
+
+    .slider-dots {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .slider-dot {
+      width: 9px;
+      height: 9px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .slider-dot.active {
+      width: 25px;
+      border-radius: 10px;
+      background: #ffd000;
     }
 
     /* ================= BENEFITS ================= */
@@ -485,9 +584,12 @@
         white-space: nowrap;
       }
 
-      .hero {
+      .slider {
         margin: 15px 3%;
-        min-height: 330px;
+        height: 330px;
+      }
+
+      .slide {
         padding: 35px 7%;
       }
 
@@ -497,6 +599,20 @@
 
       .hero-products {
         display: none;
+      }
+
+      .slider-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
       }
 
       .benefits {
@@ -547,12 +663,36 @@
         display: none;
       }
 
+      .slider {
+        height: 310px;
+      }
+
+      .slide {
+        padding: 30px 13%;
+      }
+
       .hero h1 {
         font-size: 31px;
       }
 
       .hero p {
         font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+      .hero-text small {
+        font-size: 10px;
+      }
+
+      .shop-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+      }
+
+      .slider-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
       }
 
       .categories {
@@ -645,31 +785,175 @@
   </nav>
 
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ================= HERO SLIDER ================= -->
 
-    <div class="hero-text">
+  <section class="slider" id="home">
 
-      <small>🔥 BIG SAVINGS</small>
+    <!-- SLIDE 1 -->
+    <div class="slide active">
 
-      <h1>
-        Buy Smart,<br>
-        <span>Live Better!</span>
-      </h1>
+      <div class="hero-text">
 
-      <p>
-        Discover popular products, amazing deals
-        and great prices — all in one place.
-      </p>
+        <small>🔥 BIG SAVINGS</small>
 
-      <button class="shop-btn" onclick="scrollToProducts()">
-        Shop Now →
-      </button>
+        <h1>
+          Buy Smart,<br>
+          <span>Live Better!</span>
+        </h1>
+
+        <p>
+          Discover popular products, amazing deals
+          and great prices — all in one place.
+        </p>
+
+        <button class="shop-btn" onclick="scrollToProducts()">
+          Shop Now →
+        </button>
+
+      </div>
+
+      <div class="hero-products">
+        📱 🎧 ⌚
+      </div>
 
     </div>
 
-    <div class="hero-products">
-      📱 🎧 ⌚
+
+    <!-- SLIDE 2 -->
+    <div class="slide">
+
+      <div class="hero-text">
+
+        <small>⚡ ELECTRONICS SALE</small>
+
+        <h1>
+          Upgrade Your<br>
+          <span>Tech Today!</span>
+        </h1>
+
+        <p>
+          Find smart gadgets, wireless earbuds,
+          watches and more at amazing prices.
+        </p>
+
+        <button class="shop-btn" onclick="scrollToProducts()">
+          Shop Electronics →
+        </button>
+
+      </div>
+
+      <div class="hero-products">
+        🎧 ⌚ 🎮
+      </div>
+
+    </div>
+
+
+    <!-- SLIDE 3 -->
+    <div class="slide">
+
+      <div class="hero-text">
+
+        <small>🔥 FASHION DEALS</small>
+
+        <h1>
+          Style That<br>
+          <span>Fits You!</span>
+        </h1>
+
+        <p>
+          Explore trending fashion products,
+          shoes, bags and accessories.
+        </p>
+
+        <button class="shop-btn" onclick="scrollToProducts()">
+          Explore Fashion →
+        </button>
+
+      </div>
+
+      <div class="hero-products">
+        👟 🎒 🕶️
+      </div>
+
+    </div>
+
+
+    <!-- SLIDE 4 -->
+    <div class="slide">
+
+      <div class="hero-text">
+
+        <small>💰 TODAY'S DEALS</small>
+
+        <h1>
+          Great Deals,<br>
+          <span>Great Savings!</span>
+        </h1>
+
+        <p>
+          Don't miss today's special offers.
+          Find your next favorite product on Buyora.
+        </p>
+
+        <button class="shop-btn" onclick="scrollToProducts()">
+          View Deals →
+        </button>
+
+      </div>
+
+      <div class="hero-products">
+        🛍️ 💰 🎁
+      </div>
+
+    </div>
+
+
+    <!-- PREVIOUS -->
+    <button
+      class="slider-arrow prev"
+      onclick="changeSlide(-1)"
+      aria-label="Previous slide">
+      ❮
+    </button>
+
+
+    <!-- NEXT -->
+    <button
+      class="slider-arrow next"
+      onclick="changeSlide(1)"
+      aria-label="Next slide">
+      ❯
+    </button>
+
+
+    <!-- DOTS -->
+    <div class="slider-dots">
+
+      <button
+        class="slider-dot active"
+        onclick="goToSlide(0)"
+        aria-label="Slide 1">
+      </button>
+
+      <button
+        class="slider-dot"
+        onclick="goToSlide(1)"
+        aria-label="Slide 2">
+      </button>
+
+      <button
+        class="slider-dot"
+        onclick="goToSlide(2)"
+        aria-label="Slide 3">
+      </button>
+
+      <button
+        class="slider-dot"
+        onclick="goToSlide(3)"
+        aria-label="Slide 4">
+      </button>
+
     </div>
 
   </section>
@@ -908,7 +1192,7 @@
 
 
       <!-- PRODUCT 5 -->
-      <div class="product" data-name="Air Fryer" data-category="Home">
+      <div class="product" data-name="Digital Air Fryer" data-category="Home">
 
         <div class="discount">-30%</div>
 
@@ -939,7 +1223,6 @@
         </div>
 
       </div>
-
 
     </div>
 
@@ -1121,7 +1404,6 @@
 
       </div>
 
-
     </div>
 
   </section>
@@ -1215,10 +1497,9 @@
 
   <script>
 
+    /* ================= CART ================= */
+
     let cartCount = 0;
-
-
-    /* ADD TO CART */
 
     function addToCart(productName) {
 
@@ -1231,7 +1512,7 @@
     }
 
 
-    /* SEARCH */
+    /* ================= SEARCH ================= */
 
     function searchProducts() {
 
@@ -1266,7 +1547,7 @@
     }
 
 
-    /* CATEGORY FILTER */
+    /* ================= CATEGORY FILTER ================= */
 
     function filterCategory(category) {
 
@@ -1305,7 +1586,7 @@
     }
 
 
-    /* SCROLL */
+    /* ================= SCROLL ================= */
 
     function scrollToProducts() {
 
@@ -1316,6 +1597,147 @@
         });
 
     }
+
+
+    /* ================= SLIDER ================= */
+
+    let currentSlide = 0;
+
+    const slides =
+      document.querySelectorAll(".slide");
+
+    const dots =
+      document.querySelectorAll(".slider-dot");
+
+
+    function showSlide(index) {
+
+      if (index >= slides.length) {
+        currentSlide = 0;
+      }
+
+      else if (index < 0) {
+        currentSlide = slides.length - 1;
+      }
+
+      else {
+        currentSlide = index;
+      }
+
+
+      slides.forEach(function(slide, i) {
+
+        slide.classList.toggle(
+          "active",
+          i === currentSlide
+        );
+
+      });
+
+
+      dots.forEach(function(dot, i) {
+
+        dot.classList.toggle(
+          "active",
+          i === currentSlide
+        );
+
+      });
+
+    }
+
+
+    function changeSlide(direction) {
+
+      showSlide(currentSlide + direction);
+
+    }
+
+
+    function goToSlide(index) {
+
+      showSlide(index);
+
+    }
+
+
+    /* AUTO SLIDE */
+
+    let sliderTimer =
+      setInterval(function() {
+
+        changeSlide(1);
+
+      }, 5000);
+
+
+    /* RESET TIMER AFTER MANUAL CLICK */
+
+    function resetSliderTimer() {
+
+      clearInterval(sliderTimer);
+
+      sliderTimer =
+        setInterval(function() {
+
+          changeSlide(1);
+
+        }, 5000);
+
+    }
+
+
+    document
+      .querySelectorAll(".slider-arrow, .slider-dot")
+      .forEach(function(button) {
+
+        button.addEventListener(
+          "click",
+          resetSliderTimer
+        );
+
+      });
+
+
+    /* PAUSE SLIDER WHEN MOUSE IS OVER IT */
+
+    const slider =
+      document.querySelector(".slider");
+
+    let resumeTimer;
+
+
+    slider.addEventListener(
+      "mouseenter",
+      function() {
+
+        clearInterval(sliderTimer);
+
+      }
+    );
+
+
+    slider.addEventListener(
+      "mouseleave",
+      function() {
+
+        clearTimeout(resumeTimer);
+
+        resumeTimer =
+          setTimeout(function() {
+
+            sliderTimer =
+              setInterval(function() {
+
+                changeSlide(1);
+
+              }, 5000);
+
+          }, 300);
+
+      }
+    );
+
 
   </script>
 
